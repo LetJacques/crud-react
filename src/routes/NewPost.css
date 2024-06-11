@@ -1,0 +1,14 @@
+.form {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.form-control {
+  display: flex;
+  flex-direction: column;
+}
+
+textarea {
+  resize: none;
+  overflow-y: auto;
+}

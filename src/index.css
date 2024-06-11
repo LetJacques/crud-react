@@ -1,0 +1,40 @@
+:root {
+  --white-color: #fff;
+  --blue-main-color: #2b3894;
+  --blue-secondary-color: #40c1fa;
+  --dark-main-color: #292930;
+  --gray-color: #e3e1d9;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Blinker";
+}
+
+body {
+  color: var(--dark-main-color);
+  background: linear-gradient(
+    90deg,
+    rgba(207, 221, 236, 1) 0%,
+    rgba(244, 246, 251, 1) 100%
+  );
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: var(--dark-main-color);
+  transition: 0.3s;
+}
+
+a:hover {
+  opacity: 1;
+}
+
+p {
+  color: var(--dark-main-color);
+}
