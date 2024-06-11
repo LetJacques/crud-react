@@ -1,8 +1,6 @@
-# React + Vite
+CRUD React Blog
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Um blog básico com funcionalidades de CRUD (Create, Read, Update, Delete), conectado a uma API fake JSONPlaceholder. Desenvolvido utilizando React, Axios para comunicação com a API, JavaScript, e Bootstrap.
+Para fornecer feedback visual sobre as ações do usuário há toasts informando o sucesso ou fracasso das ações, já que por se tratar de uma fake API seus comandos não serão salvos em um banco de dados.
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Contribuições são bem-vindas!
