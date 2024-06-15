@@ -1,14 +1,26 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import menuIcon from "../assets/menu-icon.png";
 import "./Navbar.css";
 
 const Navbar = () => {
   const [mobileMenu, setMobileMenu] = useState(false);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 1000);
 
   const toggleMenu = () => {
     setMobileMenu(!mobileMenu);
   };
+
+  const handleResize = () => {
+    setIsMobile(window.innerWidth <= 1000);
+  };
+
+  useEffect(() => {
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   return (
     <div
@@ -20,10 +32,11 @@ const Navbar = () => {
         <Link to={`/`} className="d-flex align-items-center">
           <img
             className="icon"
-            src="/assets/icon-tech.png"
+            src={
+              isMobile ? "/src/assets/icon-logo.svg" : "/src/assets/logo.svg"
+            }
             alt="Tech Blog Icon"
           />
-          <h2 className="ms-2 mb-0 fw-bold">Tech Blog</h2>
         </Link>
         <img
           src={menuIcon}

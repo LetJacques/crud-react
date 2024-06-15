@@ -7,7 +7,7 @@
 }
 
 .icon {
-  width: 60px;
+  width: 250px;
 }
 
 .nav-link {
@@ -25,7 +25,7 @@
   height: 4px;
   content: "";
   position: absolute;
-  background-color: var(--blue-main-color);
+  background-color: var(--orange-main-color);
 }
 
 .nav-link-ltr::before {
