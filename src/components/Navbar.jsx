@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import menuIcon from "../assets/menu-icon.png";
+import logo from "../assets/logo.svg";
+import logoIcon from "../assets/icon-logo.svg";
 import "./Navbar.css";
 
 const Navbar = () => {
@@ -32,9 +34,7 @@ const Navbar = () => {
         <Link to={`/`} className="d-flex align-items-center">
           <img
             className="icon"
-            src={
-              isMobile ? "/src/assets/icon-logo.svg" : "/src/assets/logo.svg"
-            }
+            src={isMobile ? logoIcon : logo}
             alt="Tech Blog Icon"
           />
         </Link>

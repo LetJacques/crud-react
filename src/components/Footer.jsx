@@ -1,10 +1,11 @@
 import "./Footer.css";
+import logoFoot from "../assets/logo-foot.svg";
 
 const Footer = () => {
   return (
     <div className="footer mt-5 px-5 py-5 d-flex justify-content-between align-items-center white-text">
       <div className="news d-flex flex-column">
-        <img src="/src/assets/logo-foot.svg" alt="logo" />
+        <img src={logoFoot} alt="logo" />
         <p className="about fs-5 mt-4 white-text">
           Lorem ipsum dolor sit amet, consectetur <br />
           adipiscing elit. Neque, pellentesque <br />
