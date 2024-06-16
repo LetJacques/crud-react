@@ -1,3 +1,7 @@
+.new-post {
+  padding: 0 8rem;
+}
+
 .form {
   max-width: 500px;
   margin: 0 auto;

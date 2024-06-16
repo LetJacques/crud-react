@@ -3,14 +3,14 @@ import { Link } from "react-router-dom";
 import Loading from "../components/Loading";
 import "./Home.css";
 import blogFetch from "../axios/config";
+import Footer from "../components/Footer";
 
 const Home = () => {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [currentPage, setCurrentPage] = useState(1); // página atual
-  const postsPerPage = 10; // número de posts por página
+  const [currentPage, setCurrentPage] = useState(1);
+  const postsPerPage = 10;
 
-  // Função para buscar os posts da API
   const getPosts = async () => {
     try {
       const response = await blogFetch.get("/posts");
@@ -46,6 +46,10 @@ const Home = () => {
     getPosts();
   }, []);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [currentPage]);
+
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
   const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost);
@@ -53,44 +57,45 @@ const Home = () => {
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   return (
-    <div className="home container">
-      <h1 className="mb-5 home-title">Últimas notícias</h1>
-      {loading ? (
-        <Loading />
-      ) : (
-        <>
-          {currentPosts.map((post) => (
-            <div className="post card mb-4" key={post.id}>
-              <div className="row g-0 w-100">
-                {post.imageUrl && (
-                  <div className="col-md-3">
-                    <img
-                      src={post.imageUrl}
-                      alt={post.title}
-                      className="img-fluid rounded-start post-image"
-                    />
-                  </div>
-                )}
-                <div className="col-md-8">
-                  <div className="card-body ps-5">
-                    <h3 className="card-title fw-semibold">{post.title}</h3>
-                    <p className="card-text">{post.body}</p>
-                    <Link
-                      to={`/posts/${post.id}`}
-                      className="button d-flex align-items-center justify-content-center gap-2"
-                    >
-                      Ler mais
-                    </Link>
+    <>
+      <div className="home d-flex flex-column">
+        <h1 className="mb-5 home-title">Últimas notícias</h1>
+        {loading ? (
+          <Loading />
+        ) : (
+          <>
+            {currentPosts.map((post) => (
+              <div className="post card mb-4" key={post.id}>
+                <div className="row g-0 w-100">
+                  {post.imageUrl && (
+                    <div className="col-md-3">
+                      <img
+                        src={post.imageUrl}
+                        alt={post.title}
+                        className="img-fluid rounded-start post-image"
+                      />
+                    </div>
+                  )}
+                  <div className="col-md-8">
+                    <div className="card-body ps-5">
+                      <h3 className="card-title fw-semibold">{post.title}</h3>
+                      <p className="card-text">{post.body}</p>
+                      <Link
+                        to={`/posts/${post.id}`}
+                        className="button d-flex align-items-center justify-content-center gap-2"
+                      >
+                        Ler mais
+                      </Link>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
 
-          {/* Paginação */}
-          <div className="pagination">
-            {Array.from({ length: Math.ceil(posts.length / postsPerPage) }).map(
-              (_, index) => (
+            <div className="pagination">
+              {Array.from({
+                length: Math.ceil(posts.length / postsPerPage),
+              }).map((_, index) => (
                 <button
                   key={index}
                   onClick={() => paginate(index + 1)}
@@ -100,12 +105,13 @@ const Home = () => {
                 >
                   {index + 1}
                 </button>
-              )
-            )}
-          </div>
-        </>
-      )}
-    </div>
+              ))}
+            </div>
+          </>
+        )}
+      </div>
+      <Footer />
+    </>
   );
 };
 

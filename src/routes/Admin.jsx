@@ -38,7 +38,7 @@ const Admin = () => {
   }, []);
 
   return (
-    <div className="admin">
+    <div className="admin px-5 ms-5">
       <h1 className="text-center mb-5">Gerenciar Posts</h1>
       {posts.length === 0 ? (
         <Loading />

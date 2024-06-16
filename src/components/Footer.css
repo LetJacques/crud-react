@@ -1,0 +1,42 @@
+.white-text {
+  color: var(--white-color);
+}
+
+.footer {
+  background-color: #393939;
+  height: 350px;
+  padding: 20px;
+  box-sizing: border-box;
+  text-align: center;
+  bottom: 0;
+}
+
+.socials-button {
+  padding: 10px 15px;
+  background-color: var(--orange-main-color);
+  color: var(--white-color);
+  border: none;
+  border-radius: 55%;
+}
+
+input {
+  width: 300px;
+}
+
+.btn-outline-secondary {
+  width: 180px;
+}
+
+/* Media queries */
+@media (max-width: 920px) {
+  .footer {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    gap: 3;
+  }
+  .links,
+  .newsletter {
+    display: none !important;
+  }
+}
